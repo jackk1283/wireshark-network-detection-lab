@@ -5,3 +5,14 @@ DNS queries are low in volume and show normal domain lengths and request/respons
 No signs of automated beaconing, excessive retries, or anomalous protocol usage were observed.
 
 
+smb_tcp_analysis.png:
+Identified repeated short-lived TCP connections from a single internal host to SMB ports (445/139), indicating SMB enumeration rather than normal file-sharing activity.
+
+smb_analysis.png:
+Observed one internal host initiating connections across multiple enterprise service ports (SMB, LDAP, RPC, HTTP/HTTPS), consistent with internal service discovery.
+
+smb_scanning_behavior.png:
+Detected multiple SYN-only TCP packets to internal hosts and common service ports, indicating reconnaissance or scanning activity.
+
+smb_session_setup_request.png:
+Captured SMB2 session setup and NTLM authentication attempts with IPC$ access, commonly used during internal enumeration and early lateral movement.
