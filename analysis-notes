@@ -1,1 +1,1 @@
-
+The capture consists primarily of IPv4 traffic with a mix of TCP and UDP protocols. Encrypted traffic (TLS and QUIC) accounts for a significant portion of sessions, consistent with modern web browsing behavior. DNS queries are low in volume and show normal domain lengths and request/response patterns. No signs of automated beaconing, excessive retries, or anomalous protocol usage were observed.
