@@ -18,4 +18,5 @@ smb_session_setup_request.png:
 Captured SMB2 session setup and NTLM authentication attempts with IPC$ access, commonly used during internal enumeration and early lateral movement.
 
 03-beaconing_graph.png:
-I/O graphs were reviewed to identify periodic outbound traffic; no consistent beaconing patterns were observed. Beaconing behavior would mean the same height in spikes, same spacing, and would run for a longer time.
+I/O graphs were reviewed to identify periodic outbound traffic; no consistent beaconing patterns were observed. 
+Beaconing behavior would mean the same height in spikes, same spacing, and would run for a longer time.
