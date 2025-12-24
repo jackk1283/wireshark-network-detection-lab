@@ -12,7 +12,7 @@ smb_tcp_analysis.png:
 Identified repeated short-lived TCP connections from a single internal host to SMB ports (445/139), indicating SMB enumeration rather than normal file-sharing activity.
 
 smb_analysis.png:
-Observed one internal host initiating connections across multiple enterprise service ports (SMB, LDAP, RPC, HTTP/HTTPS), consistent with internal service discovery.
+Observed one internal host initiating connections across multiple internal enterprise service ports (SMB, LDAP, RPC, HTTP/HTTPS), consistent with internal service discovery.
 
 smb_scanning_behavior.png:
 Detected multiple SYN-only TCP packets to internal hosts and common service ports, indicating reconnaissance or scanning activity.
