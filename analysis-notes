@@ -25,5 +25,7 @@ I/O graphs were reviewed to identify periodic outbound traffic; no consistent be
 Beaconing behavior would mean the same height in spikes, same spacing, and would run for a longer time.
 
 04-TLS_SNI.png:
-This packet shows a TLS 1.2 Client Hello sent from 172.17.0.99 to 20.10.31.115 over port 443. The Client Hello initiates an encrypted TLS session and advertises supported cipher suites and extensions.
-The Server Name Indication (SNI) field reveals the destination hostname client.wns.windows.com, allowing visibility into the target service even though the traffic payload is encrypted.
+Captured and analyzed a TLS 1.2 Client Hello over TCP port 443 using Wireshark. 
+Identified the Server Name Indication (SNI) value client.wns.windows.com, showing the destination domain before encryption. 
+Examined TLS handshake parameters including supported cipher suites, extensions, and elliptic curves. 
+Extracted the JA3 fingerprint and full JA3 string from the Client Hello, demonstrating how encrypted traffic can still be fingerprinted and correlated for detection and threat hunting without decrypting payload data.
