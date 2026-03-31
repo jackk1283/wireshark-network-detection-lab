@@ -1,31 +1,20 @@
-Packet_Capture_Baseline.png:
-The capture consists primarily of IPv4 traffic with a mix of TCP and UDP protocols. 
-Encrypted traffic (TLS and QUIC) accounts for a significant portion of sessions, consistent with modern web browsing behavior. 
-DNS queries are low in volume and show normal domain lengths and request/response patterns. 
-No signs of automated beaconing, excessive retries, or anomalous protocol usage were observed.
-Used my own home network for this. 
+01 - Packet_Capture_Baseline.png
+Baseline traffic showing normal behavior (mostly TLS/QUIC, no anomalies).
 
-The following analysis is from a online PCAP.
+02 - Beaconing_graph.png
+Checked for periodic traffic patterns; no beaconing observed.
 
+03 - TLS_SNI.png
+Used TLS SNI/JA3 to identify encrypted traffic destinations without decryption.
 
-smb_tcp_analysis.png:
-Identified repeated short-lived TCP connections from a single internal host to SMB ports (445/139), indicating SMB enumeration rather than normal file-sharing activity.
+04 - smb_analysis.png
+One host connected to multiple internal services, indicating service discovery.
 
-smb_analysis.png:
-Observed one internal host initiating connections across multiple internal enterprise service ports (SMB, LDAP, RPC, HTTP/HTTPS), consistent with internal service discovery.
+05 - smb_scanning_behavior.png
+SYN-only packets across many ports showed clear scanning/recon activity.
 
-smb_scanning_behavior.png:
-Detected multiple SYN-only TCP packets to internal hosts and common service ports, indicating reconnaissance or scanning activity.
+06 - smb_session_setup_request.png
+SMB + NTLM authentication attempt indicated possible lateral movement.
 
-smb_session_setup_request.png:
-Captured SMB2 session setup and NTLM authentication attempts with IPC$ access, commonly used during internal enumeration and early lateral movement.
-
-03-beaconing_graph.png:
-I/O graphs were reviewed to identify periodic outbound traffic; no consistent beaconing patterns were observed. 
-Beaconing behavior would mean the same height in spikes, same spacing, and would run for a longer time.
-
-04-TLS_SNI.png:
-Captured and analyzed a TLS 1.2 Client Hello over TCP port 443 using Wireshark. 
-Identified the Server Name Indication (SNI) value client.wns.windows.com, showing the destination domain before encryption. 
-Examined TLS handshake parameters including supported cipher suites, extensions, and elliptic curves. 
-Extracted the JA3 fingerprint and full JA3 string from the Client Hello, demonstrating how encrypted traffic can still be fingerprinted and correlated for detection and threat hunting without decrypting payload data.
+07 - smb_tcp_analysis.png
+Repeated short SMB connections suggested enumeration behavior.
